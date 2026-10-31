@@ -1,0 +1,447 @@
+<!doctype html>
+<!-- Amao Dash privacy policy. Static bilingual page: no external assets, fonts, scripts or trackers; no cookies or storage of any kind. Language state lives only in the URL hash (#zh / #en). -->
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Amao Dash（com.amao.dash）隐私政策 · Amao Dash (com.amao.dash) Privacy Policy">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f7fafa" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#101716" media="(prefers-color-scheme: dark)">
+<title>Amao Dash 隐私政策 · Privacy Policy</title>
+<script>
+/* Set the language before first paint; without JavaScript both languages are shown. */
+(function () {
+  var m = /^#(zh|en)$/.exec(location.hash);
+  var l = m ? m[1] : 'zh';
+  var d = document.documentElement;
+  d.setAttribute('data-lang', l);
+  d.setAttribute('lang', l === 'zh' ? 'zh-Hans' : 'en');
+})();
+</script>
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #f7fafa;
+  --surface: #ffffff;
+  --text: #21302e;
+  --muted: #56696a;
+  --accent: #2e7d74;
+  --accent-contrast: #ffffff;
+  --accent-soft: #e3efed;
+  --border: #d5e3e1;
+  --link: #22635d;
+  --code-bg: #edf3f2;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #101716;
+    --surface: #17211f;
+    --text: #e2eae8;
+    --muted: #9ab0ae;
+    --accent: #74b9b0;
+    --accent-contrast: #0f1716;
+    --accent-soft: #1e2c2a;
+    --border: #283836;
+    --link: #8ecbc3;
+    --code-bg: #1c2726;
+  }
+}
+html[data-lang="zh"] .lang-en { display: none; }
+html[data-lang="en"] .lang-zh { display: none; }
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+header, main, footer {
+  max-width: 47rem;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 1.5rem);
+}
+header { padding-block: 1.75rem 1.25rem; border-bottom: 1px solid var(--border); }
+footer { margin-block: 2.5rem 3rem; padding-top: 1.25rem; border-top: 1px solid var(--border); font-size: 0.95rem; color: var(--muted); }
+h1 { font-size: clamp(1.6rem, 4.5vw, 2.1rem); line-height: 1.3; margin: 0.2rem 0 1rem; }
+h2 { font-size: 1.22rem; line-height: 1.4; margin: 2.2rem 0 0.8rem; padding-top: 1.1rem; border-top: 1px solid var(--border); color: var(--accent); }
+.content > section:first-of-type h2 { border-top: 0; padding-top: 0; margin-top: 1.5rem; }
+h3 { font-size: 1.05rem; margin: 1.4rem 0 0.5rem; }
+p { margin: 0.6rem 0; }
+ul, ol { margin: 0.6rem 0; padding-left: 1.4rem; }
+li { margin: 0.35rem 0; }
+a { color: var(--link); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 2px; }
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 0.92em;
+  background: var(--code-bg);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  overflow-wrap: anywhere;
+}
+.app-eyebrow {
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0;
+}
+.meta-list { list-style: none; margin: 0; padding: 0; }
+.meta-list li { margin: 0.3rem 0; }
+.meta-list strong { font-weight: 600; }
+.summary {
+  background: var(--accent-soft);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+}
+.summary :first-child { margin-top: 0; }
+.summary :last-child { margin-bottom: 0; }
+.lang-switch { display: flex; gap: 0.5rem; justify-content: flex-end; margin-bottom: 1.25rem; }
+.lang-switch button {
+  font: inherit;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  padding: 0.35rem 0.95rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+}
+.lang-switch button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-contrast); }
+.js-note { font-size: 0.9rem; color: var(--muted); }
+.skip-link {
+  position: absolute;
+  left: 0.75rem;
+  top: 0.75rem;
+  transform: translateY(-300%);
+  background: var(--accent);
+  color: var(--accent-contrast);
+  padding: 0.5rem 0.9rem;
+  border-radius: 6px;
+  z-index: 10;
+}
+.skip-link:focus { transform: none; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+@media print {
+  .no-print, .skip-link { display: none !important; }
+  body { background: #fff; color: #000; font-size: 11pt; line-height: 1.55; }
+  a { color: #000; }
+  a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.88em; color: #444; word-break: break-all; }
+  h2, h3 { break-after: avoid; page-break-after: avoid; color: #000; }
+  header, main, footer { max-width: none; padding-inline: 0; }
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main"><span class="lang-zh">跳到主内容</span><span class="lang-en">Skip to main content</span></a>
+
+<header>
+  <div class="lang-switch no-print" role="group" aria-label="语言 / Language">
+    <button type="button" data-lang-btn="zh" aria-pressed="true">中文</button>
+    <button type="button" data-lang-btn="en" aria-pressed="false">English</button>
+  </div>
+  <p class="app-eyebrow">Amao Dash</p>
+  <h1><span class="lang-zh">隐私政策</span><span class="lang-en">Privacy Policy</span></h1>
+  <ul class="meta-list">
+    <li><span class="lang-zh"><strong>应用：</strong>Android 应用 Amao Dash（包名 <code>com.amao.dash</code>）</span><span class="lang-en"><strong>App:</strong> Amao Dash for Android (package <code>com.amao.dash</code>)</span></li>
+    <li><span class="lang-zh"><strong>运营者：</strong>Amao Dash 开发者（独立开发者）</span><span class="lang-en"><strong>Operator:</strong> Amao Dash developer (independent developer)</span></li>
+    <li><span class="lang-zh"><strong>生效日期：</strong><time datetime="2026-10-31">2026 年 10 月 31 日</time></span><span class="lang-en"><strong>Effective date:</strong> <time datetime="2026-10-31">October 31, 2026</time></span></li>
+    <li><span class="lang-zh"><strong>联系邮箱：</strong><a href="mailto:lihywh@gmail.com">lihywh@gmail.com</a></span><span class="lang-en"><strong>Contact:</strong> <a href="mailto:lihywh@gmail.com">lihywh@gmail.com</a></span></li>
+  </ul>
+  <noscript><p class="js-note"><span class="lang-zh">未启用 JavaScript：下方将同时显示中英文两个版本。</span><span class="lang-en">JavaScript is disabled: both the Chinese and English versions are shown below.</span></p></noscript>
+</header>
+
+<main id="main" tabindex="-1">
+
+<div class="content lang-zh" lang="zh-Hans">
+
+  <section>
+    <h2>一、关于本政策</h2>
+    <p>本隐私政策说明 Amao Dash Android 应用（下称“本应用”）如何处理与您相关的信息。“我们”指 Amao Dash 开发者，即一名独立开发者。本应用用于帮助发布商在连接自己的 Google 账号后，查看自己 Google AdMob 账号的报表数据（例如收入，以及按应用、国家/地区、广告单元等维度的细分），并提供多语言界面设置和一个明确标注为“演示模式”的功能，该模式仅显示合成的示例数据。</p>
+    <p>您使用 Google 服务时，Google 自身的条款与政策同样适用，相关链接见文末“相关 Google 政策与工具”。</p>
+  </section>
+
+  <section class="summary" aria-label="要点概览">
+    <h2>二、要点概览</h2>
+    <ul>
+      <li>仅在您主动选择连接账号时，申请唯一一项 Google 权限范围：AdMob 只读（<code>admob.readonly</code>）。</li>
+      <li>通过 HTTPS 向 Google API 直接请求报表数据，并在您的设备上解析与展示。</li>
+      <li>在当前构建中，报表数据本身不会被本应用写入设备存储；本地仅保存少量偏好设置（如语言、主题、所选报表周期）。</li>
+      <li>开发者目前不运营用于存放本应用用户数据的服务器或用户账号数据库。</li>
+      <li>应用内可能通过 Google 广告服务展示广告；Google 可能按其政策收集和处理数据（见第六节）。</li>
+      <li>我们不出售本政策所述的报表数据，也不将其用于广告定向。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>三、Google 账号授权</h2>
+    <ul>
+      <li>当您选择连接账号时，本应用通过 Google Play 服务提供的 Google Identity 授权流程发起 OAuth 请求，申请的权限范围只有一项：<code>https://www.googleapis.com/auth/admob.readonly</code>（AdMob 只读）。该范围为只读，应用无法借此修改您 AdMob 账号中的数据或设置。是否授权完全由您在 Google 的界面中决定，您也可以随时撤销。</li>
+      <li>授权产生的访问令牌（access token）仅保存在应用进程内存中，用于调用 Google API。本应用不会主动将令牌保存到磁盘或写入日志。断开连接或会话结束后，应用会释放其内存中的令牌。</li>
+      <li>Google Play 服务及相关 Google 组件可能会在设备上保存其自身的账号、服务或同意（consent）状态。这类数据由 Google 管理与控制，不属于本应用直接管理的范围。</li>
+      <li>您可以随时在 Google 账号的“具有账号访问权限的第三方应用”页面查看或移除本应用的访问权限（链接见文末）。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>四、报表数据的处理方式</h2>
+    <ul>
+      <li>完成授权后，应用携带您的访问令牌，通过 HTTPS 直接请求 Google 的 API（<code>googleapis.com</code>），获取您选择的 AdMob 报表数据，例如发布商层级的指标，以及按应用、国家/地区、广告单元等维度细分的收入、展示次数、点击次数等数据。</li>
+      <li>这些请求由 Google 的 AdMob API 在 Google 一侧处理，报表数据本身也来源于您的 Google AdMob 账号。也就是说，Google（AdMob）会收到相应的 API 请求，并按其自身政策处理相关数据——本应用不改变这一点。</li>
+      <li>返回的数据在您的设备上解析与展示。当前版本不会将报表数据发送到开发者运营的服务器；开发者目前也没有运营此类服务器或用户账号数据库。</li>
+      <li>演示模式仅显示合成的示例数据，不使用您账号中的真实数据。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>五、设备上的本地存储</h2>
+    <p>本应用使用 Android 标准的本地存储（SharedPreferences）保存少量偏好设置，例如：</p>
+    <ul>
+      <li>界面语言与主题；</li>
+      <li>上次选择的发布商账号与报表周期；</li>
+      <li>上次数据刷新时间；</li>
+      <li>演示模式的开启状态（如果您使用该功能）。</li>
+    </ul>
+    <p>在当前构建中，报表数据本身及其包含的财务数字不会被本应用持久化到设备存储；重新打开应用时，数据会重新从 Google 获取。</p>
+    <p>此外，Google Play 服务、Google Mobile Ads 及 Google 用户消息平台（UMP）等组件可能会在设备上保存其自身的标识符、广告相关状态与同意记录，具体以 Google 的政策与说明为准（链接见文末）。</p>
+    <p>在应用中断开连接，会清除应用本地的授权状态；在 Google 账号设置中移除访问权限，即可撤销对应的 OAuth 授权。</p>
+  </section>
+
+  <section>
+    <h2>六、广告与 Google 的数据处理</h2>
+    <p>为支持应用的免费使用，应用内可能通过 Google Mobile Ads 展示广告，并按要求通过 Google 用户消息平台（UMP）展示同意或选择消息。视您的选择、所在地区与适用要求以及 Google 的政策而定，Google 及其合作伙伴可能会收集和处理设备标识符（如广告 ID）、网络与 IP 信息、应用互动数据、诊断数据，以及广告与同意相关的数据。在应用发起广告请求之前，应用向 Google/UMP 发出的请求本身也可能涉及对网络信息与同意状态的处理。</p>
+    <ul>
+      <li>在展示同意消息的场景下，完成该消息流程是应用发起广告请求的前提；您也可以随时通过 Google 广告设置或设备系统设置管理广告隐私选项。</li>
+      <li>本应用自身目前未启用由开发者运营的行为分析服务，也未启用 Firebase Analytics 或崩溃报告服务；Google 广告相关 SDK 自身的数据收集已在上文及 Google 政策中另行说明。</li>
+      <li>Google 各 SDK 如何处理数据，以 Google 的政策与披露为准（链接见文末）。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>七、本应用当前不做的事</h2>
+    <ul>
+      <li>不建立开发者侧的用户账号体系：您仅使用自己的 Google 账号登录，开发者不维护独立的用户数据库。</li>
+      <li>不出售本政策所述的报表数据。</li>
+      <li>不将您的 AdMob 报表数据用于广告定向，也不将其提供给广告商。</li>
+      <li>不提供支付或订阅功能。</li>
+    </ul>
+    <p>如果上述做法发生变化，我们会相应更新本政策。</p>
+  </section>
+
+  <section>
+    <h2>八、安全措施</h2>
+    <p>应用与 Google 之间的数据传输使用 HTTPS。访问令牌仅保留在进程内存中，本应用不会主动将其持久化或写入日志。开发者目前不运营保存您报表数据的联网存储系统。同时，任何存储与传输方式都无法保证绝对安全，建议您定期检查自己 Google 账号中的第三方访问权限。</p>
+  </section>
+
+  <section>
+    <h2>九、未成年人</h2>
+    <p>本应用是面向 AdMob 发布商的效率工具，并非专门面向儿童设计。如果您认为有未成年人在未经授权的情况下使用了发布商账号，请通过文末邮箱联系我们。</p>
+  </section>
+
+  <section>
+    <h2>十、您的权利与选择</h2>
+    <ul>
+      <li><strong>断开连接：</strong>在应用中断开连接会清除应用本地的授权状态，此后应用不再请求您的数据。</li>
+      <li><strong>管理 Google 授权：</strong>在 Google 账号的“具有账号访问权限的第三方应用”中，可查看或移除本应用的访问权限。</li>
+      <li><strong>广告与同意选择：</strong>可通过 Google 广告设置或设备系统设置管理广告隐私选项。</li>
+      <li><strong>您的报表数据：</strong>报表数据始终保存在您的 Google（AdMob）账号中，其保留与删除由 Google 服务的规则管理；本应用无法删除您 Google 账号中的数据。卸载应用或清除应用数据，可移除本应用保存在设备上的偏好设置；Google 组件自身的状态请通过系统设置或 Google 账号页面管理。</li>
+      <li><strong>联系与请求：</strong>就本政策或您的信息如有问题或请求，请联系 <a href="mailto:lihywh@gmail.com">lihywh@gmail.com</a>。根据您所在的地区，您可能享有访问、更正、删除、撤回同意等权利。涉及您 Google 账号内数据的请求，我们会指引您使用 Google 提供的工具完成，因为相应数据保存在您的 Google 账号中。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>十一、政策更新</h2>
+    <p>本政策可能会更新。发生重大变化时，我们会以新的生效日期发布更新版本，并在可行时在应用内或本页面提示。页面顶部的生效日期即代表当前版本。</p>
+  </section>
+
+  <section>
+    <h2>十二、联系方式</h2>
+    <p>Amao Dash 开发者<br>
+    邮箱：<a href="mailto:lihywh@gmail.com">lihywh@gmail.com</a>（该邮箱同时是 Google OAuth 授权同意页面上展示的支持邮箱）</p>
+  </section>
+
+  <section>
+    <h2>相关 Google 政策与工具</h2>
+    <ul>
+      <li><a href="https://policies.google.com/privacy" rel="noopener">Google 隐私政策</a></li>
+      <li><a href="https://policies.google.com/technologies/partner-sites" rel="noopener">Google 如何使用网站或应用中的信息</a></li>
+      <li><a href="https://myaccount.google.com/connections" rel="noopener">具有账号访问权限的第三方应用（Google 账号）</a></li>
+      <li><a href="https://support.google.com/accounts/answer/3466521" rel="noopener">Google 帮助：查看或移除第三方应用的访问权限</a></li>
+      <li><a href="https://adssettings.google.com" rel="noopener">Google 广告设置</a></li>
+      <li><a href="https://developers.google.com/admob/android/privacy" rel="noopener">Google 用户消息平台（UMP）SDK 文档（英文）</a></li>
+    </ul>
+  </section>
+
+</div>
+
+<div class="content lang-en" lang="en">
+
+  <section>
+    <h2>1. About this policy</h2>
+    <p>This Privacy Policy explains how the Amao Dash Android app ("the app") handles information related to you. "We" refers to the Amao Dash developer, an independent developer. The app helps publishers view reporting data from their own Google AdMob account after connecting that Google account — for example earnings and breakdowns by app, country/region, and ad unit — and offers multilingual interface settings plus a clearly labelled demo mode that shows synthetic sample data only.</p>
+    <p>When you use Google services, Google's own terms and policies also apply; see "Related Google policies and tools" at the end of this page.</p>
+  </section>
+
+  <section class="summary" aria-label="At a glance">
+    <h2>2. At a glance</h2>
+    <ul>
+      <li>A single Google OAuth scope is requested — AdMob read-only (<code>admob.readonly</code>) — and only when you take action to connect.</li>
+      <li>Report data is requested directly from Google APIs over HTTPS, then parsed and displayed on your device.</li>
+      <li>In the current build, the app does not write report data itself to device storage; only small preferences are stored locally (for example language, theme, and the selected report period).</li>
+      <li>The developer currently operates no server and no user account database for this app's user data.</li>
+      <li>The app may show ads through Google's advertising services; Google may collect and process data under its policies (see section 6).</li>
+      <li>We do not sell the report data described in this policy, and we do not use it for advertising targeting.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>3. Google account authorization</h2>
+    <ul>
+      <li>When you choose to connect, the app starts an OAuth flow through Google Identity services (provided via Google Play services) and requests exactly one scope: <code>https://www.googleapis.com/auth/admob.readonly</code> (AdMob, read-only). This scope is read-only, so the app cannot use it to change data or settings in your AdMob account. Whether to grant access is your decision, made in Google's interface, and you can revoke it at any time.</li>
+      <li>The access token issued by Google is kept in the app's process memory and used to call Google APIs. The app does not deliberately save the token to disk or write it to logs. When you disconnect or the session ends, the app releases its in-memory copy of the token.</li>
+      <li>Google Play services and related Google components may keep their own account, service, or consent state on your device. That data is managed and controlled by Google, not by this app.</li>
+      <li>You can review or remove the app's access at any time on the "Third-party apps with account access" page of your Google Account (link at the end of this page).</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>4. How report data is handled</h2>
+    <ul>
+      <li>After you authorize, the app calls Google's APIs (<code>googleapis.com</code>) directly over HTTPS, using your access token, to retrieve the AdMob reporting data you request — for example publisher-level metrics, and earnings, impressions, and clicks broken down by app, country/region, or ad unit.</li>
+      <li>These requests are processed on Google's side by the AdMob API, and the report data itself originates in your Google AdMob account. In other words, Google (AdMob) does receive the API requests and handles the related data under its own policies — this app does not change that.</li>
+      <li>Returned data is parsed and displayed on your device. The current version does not send report data to any developer-operated server, and the developer currently operates no such server or user account database.</li>
+      <li>Demo mode shows synthetic sample data only and does not use real data from your account.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>5. Local storage on your device</h2>
+    <p>The app uses Android's standard local storage (SharedPreferences) to keep a small number of preferences, for example:</p>
+    <ul>
+      <li>interface language and theme;</li>
+      <li>the publisher account and report period you last selected;</li>
+      <li>the time of your last data refresh;</li>
+      <li>whether demo mode is enabled (if you use that feature).</li>
+    </ul>
+    <p>In the current build, the report data itself and the financial figures it contains are not persisted to device storage by the app; when you reopen the app, data is fetched again from Google.</p>
+    <p>In addition, components such as Google Play services, Google Mobile Ads, and Google's User Messaging Platform (UMP) may store their own identifiers, ad-related state, and consent records on your device; see Google's policies and disclosures (links at the end of this page).</p>
+    <p>Disconnecting in the app clears the app's local authorization state; removing access in your Google Account settings revokes the OAuth grant.</p>
+  </section>
+
+  <section>
+    <h2>6. Ads and Google's data processing</h2>
+    <p>To keep the app free to use, the app may show ads served through Google Mobile Ads and, where required, display a consent or choices message powered by Google's User Messaging Platform (UMP). Depending on your choices, your region and applicable requirements, and Google's policies, Google and its partners may collect and process device identifiers (such as the advertising ID), network and IP information, app interaction data, diagnostics, and ad- and consent-related data. Requests the app makes to Google/UMP can themselves involve processing of network information and consent state before an ad request is made.</p>
+    <ul>
+      <li>Where a consent message is shown, completing that message flow is a precondition for the app to request ads. You can also manage ad privacy choices at any time through Google Ad Settings or your device's system settings.</li>
+      <li>The app itself currently enables no developer-operated behavioral analytics services and no Firebase Analytics or crash reporting services; data collection by Google's advertising SDKs themselves is disclosed separately above and in Google's policies.</li>
+      <li>How Google's SDKs handle data is governed by Google's policies and disclosures (links at the end of this page).</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>7. What the app does not currently do</h2>
+    <ul>
+      <li>It does not build a developer-side user account system: you sign in with your own Google account, and the developer keeps no separate user database.</li>
+      <li>It does not sell the report data described in this policy.</li>
+      <li>It does not use your AdMob report data for advertising targeting, and it does not provide that data to advertisers.</li>
+      <li>It does not offer payments or subscriptions.</li>
+    </ul>
+    <p>If any of these practices change, we will update this policy accordingly.</p>
+  </section>
+
+  <section>
+    <h2>8. Security</h2>
+    <p>Data in transit between the app and Google uses HTTPS. The access token is kept in process memory and is not deliberately persisted or written to logs by the app. The developer currently operates no internet-connected storage system that holds your report data. No method of storage or transmission is completely secure, so we encourage you to review the third-party access granted in your Google Account from time to time.</p>
+  </section>
+
+  <section>
+    <h2>9. Minors</h2>
+    <p>The app is a productivity tool for AdMob publishers and is not specifically directed to children. If you believe a publisher account was used by a minor without authorization, please contact us at the email at the end of this page.</p>
+  </section>
+
+  <section>
+    <h2>10. Your rights and choices</h2>
+    <ul>
+      <li><strong>Disconnect:</strong> disconnecting in the app clears the app's local authorization state, after which the app no longer requests your data.</li>
+      <li><strong>Manage Google authorization:</strong> view or remove the app's access under "Third-party apps with account access" in your Google Account.</li>
+      <li><strong>Ads and consent choices:</strong> manage ad privacy options via Google Ad Settings or your device's system settings.</li>
+      <li><strong>Your report data:</strong> report data stays in your Google (AdMob) account; its retention and deletion are governed by the rules of Google's services. This app cannot delete data inside your Google account. Uninstalling the app or clearing its data removes the preferences the app keeps on your device; for the state kept by Google's own components, use your system settings or Google Account pages.</li>
+      <li><strong>Contact and requests:</strong> for questions or requests about this policy or your information, contact <a href="mailto:lihywh@gmail.com">lihywh@gmail.com</a>. Depending on where you are, you may have rights such as access, correction, deletion, or withdrawal of consent. Where a request concerns data inside your Google account, we will point you to Google's tools, because that data lives in your Google account.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>11. Changes to this policy</h2>
+    <p>We may update this policy. For material changes we will publish an updated version with a new effective date and, where feasible, flag the change in the app or on this page. The effective date at the top of this page identifies the current version.</p>
+  </section>
+
+  <section>
+    <h2>12. Contact</h2>
+    <p>Amao Dash developer<br>
+    Email: <a href="mailto:lihywh@gmail.com">lihywh@gmail.com</a> (this is also the support email shown on the Google OAuth consent screen)</p>
+  </section>
+
+  <section>
+    <h2>Related Google policies and tools</h2>
+    <ul>
+      <li><a href="https://policies.google.com/privacy" rel="noopener">Google Privacy Policy</a></li>
+      <li><a href="https://policies.google.com/technologies/partner-sites" rel="noopener">How Google uses information from sites or apps that use our services</a></li>
+      <li><a href="https://myaccount.google.com/connections" rel="noopener">Third-party apps with account access (Google Account)</a></li>
+      <li><a href="https://support.google.com/accounts/answer/3466521" rel="noopener">Google Help: see or remove access for third-party apps</a></li>
+      <li><a href="https://adssettings.google.com" rel="noopener">Google Ad Settings</a></li>
+      <li><a href="https://developers.google.com/admob/android/privacy" rel="noopener">Google User Messaging Platform (UMP) SDK documentation</a></li>
+    </ul>
+  </section>
+
+</div>
+
+</main>
+
+<footer>
+  <p><span class="lang-zh">Amao Dash 开发者 · 生效日期 <time datetime="2026-10-31">2026-10-31</time> · <a href="mailto:lihywh@gmail.com">lihywh@gmail.com</a></span><span class="lang-en">Amao Dash developer · Effective <time datetime="2026-10-31">2026-10-31</time> · <a href="mailto:lihywh@gmail.com">lihywh@gmail.com</a></span></p>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+  var root = document.documentElement;
+  var buttons = Array.prototype.slice.call(document.querySelectorAll('[data-lang-btn]'));
+  function apply(lang) {
+    if (lang !== 'zh' && lang !== 'en') { lang = 'zh'; }
+    root.setAttribute('data-lang', lang);
+    root.setAttribute('lang', lang === 'zh' ? 'zh-Hans' : 'en');
+    buttons.forEach(function (b) {
+      b.setAttribute('aria-pressed', b.getAttribute('data-lang-btn') === lang ? 'true' : 'false');
+    });
+  }
+  function langFromHash() {
+    var m = /^#(zh|en)$/.exec(window.location.hash);
+    return m ? m[1] : null;
+  }
+  apply(langFromHash() || root.getAttribute('data-lang') || 'zh');
+  window.addEventListener('hashchange', function () {
+    var l = langFromHash();
+    if (l) { apply(l); }
+  });
+  buttons.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var l = b.getAttribute('data-lang-btn');
+      if (root.getAttribute('data-lang') !== l) {
+        if (history.replaceState) { history.replaceState(null, '', '#' + l); }
+        apply(l);
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
