@@ -17,6 +17,20 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Apk Manager app icon and name">
 <meta name="twitter:card" content="summary_large_image">
+<style>
+main { width: min(100%, 490px); }
+.primary { flex-wrap: wrap; row-gap: 4px; }
+.primary small { white-space: nowrap; }
+.more-apps { border-top: 1px solid #e3ded6; margin-top: 28px; padding-top: 22px; }
+.more-apps h2 { margin: 0 0 12px; font-size: 1.2rem; }
+.app-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; list-style: none; margin: 0; padding: 0; }
+.app-links a { min-height: 48px; padding: 9px 11px; gap: 8px; border: 1px solid #e3ded6; background: #faf9f7; font-size: .9rem; }
+.app-links a:hover { border-color: var(--accent); background: #f1f2f7; }
+.app-links b { font-weight: 650; overflow-wrap: anywhere; }
+.app-links img { width: 24px; height: 24px; border-radius: 6px; flex: none; }
+.app-links .arrow { margin-left: auto; color: var(--accent); }
+@media (max-width: 400px) { .app-links { grid-template-columns: minmax(0, 1fr); } }
+</style>
 </head>
 <body style="--accent:#415586">
 <main>
@@ -24,18 +38,33 @@
   <h1 id="app-name" data-zh="APK 批量管理器">Apk Manager</h1>
   <p id="platform">For Android phones and tablets</p>
   <nav aria-label="App stores" id="stores">
-    <a class="primary" href="https://play.google.com/store/apps/details?id=aMao.apkManager"><span id="install">Install on Android</span><small>Google Play ↗</small></a>
-
+    <a class="primary" href="https://play.google.com/store/apps/details?id=aMao.apkManager"><span id="install">Download Apk Manager</span><small>Google Play ↗</small></a>
   </nav>
+  <section class="more-apps" aria-labelledby="more-apps-heading">
+    <h2 id="more-apps-heading" data-zh="更多应用">More apps</h2>
+    <ul class="app-links">
+      <li><a href="../junqi/"><img src="../junqi/icon.png" alt=""><b data-zh="军棋同桌">Junqi Table</b><span class="arrow" aria-hidden="true">›</span></a></li>
+      <li><a href="../gomoku/"><img src="../gomoku/icon.png" alt=""><b data-zh="五子连珠">Gomoku</b><span class="arrow" aria-hidden="true">›</span></a></li>
+      <li><a href="../gopad/"><img src="../gopad/icon.png" alt=""><b data-zh="GoPad 围棋">GoPad</b><span class="arrow" aria-hidden="true">›</span></a></li>
+      <li><a href="../reversi/"><img src="../reversi/icon.png" alt=""><b data-zh="黑白棋">Reversi</b><span class="arrow" aria-hidden="true">›</span></a></li>
+      <li><a href="/tea-banqi/"><b data-zh="茶馆暗棋">Tea House Dark Chess</b><span class="arrow" aria-hidden="true">›</span></a></li>
+      <li><a href="../jungletable/"><b data-zh="斗兽棋同桌">Jungle Table</b><span class="arrow" aria-hidden="true">›</span></a></li>
+      <li><a href="../paperplanes/"><b data-zh="纸上猜飞机">Paper Planes</b><span class="arrow" aria-hidden="true">›</span></a></li>
+      <li><a href="../picpuzzle/"><b data-zh="趣味拼图">PicPuzzle</b><span class="arrow" aria-hidden="true">›</span></a></li>
+      <li><a href="../amaodash/"><b>Amao Dash</b><span class="arrow" aria-hidden="true">›</span></a></li>
+      <li><a href="../returnpocket/"><b>ReturnPocket</b><span class="arrow" aria-hidden="true">›</span></a></li>
+      <li><a href="/paperfold-studio/"><b data-zh="折纸工坊">PaperFold Studio</b><span class="arrow" aria-hidden="true">›</span></a></li>
+    </ul>
+  </section>
 </main>
 <script>
 if (/^zh(?:-|$)/i.test(navigator.language)) {
   document.documentElement.lang = 'zh';
+  for (const label of document.querySelectorAll('[data-zh]')) label.textContent = label.dataset.zh;
   const name = document.getElementById('app-name');
-  name.textContent = name.dataset.zh;
   document.title = name.dataset.zh + ' · Android';
   document.getElementById('platform').textContent = '适用于安卓手机和平板';
-  document.getElementById('install').textContent = '下载安装';
+  document.getElementById('install').textContent = '下载 APK 批量管理器';
   document.getElementById('stores').setAttribute('aria-label', '应用商店');
 }
 </script>
