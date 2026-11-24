@@ -11,7 +11,7 @@ export function drawShadow(canvas,scene,camera,w,h) {
   if(camera.position.z<.4)return;
   ctx.beginPath();
   for(const mesh of scene.children){
-    if(!mesh.isMesh||mesh.material.side!==0)continue;
+    if(!mesh.isMesh||!mesh.visible||mesh.material.side!==0)continue;
     const pos=mesh.geometry.attributes.position.array,idx=mesh.geometry.index.array;
     const coords=new Float32Array(pos.length/3*2);
     for(let i=0;i<pos.length;i+=3){

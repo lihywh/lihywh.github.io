@@ -5,6 +5,7 @@ import {drawShadow} from './shadow.js';
 import {drawFoldGuide} from './fold-guide.js';
 import {createBeginnerModel} from './beginner.js';
 import {courseText, copy} from './courses.js';
+import {createStudioModel} from './studio-paper.js';
 
 const bookmarkZh = [
   ['沿对角线合起','捏住下方纸角，向上折，让它与最上方的纸角重合。','压平后是一只双层三角形，长边在下。'],
@@ -15,6 +16,7 @@ const bookmarkZh = [
   ['塞入左角，压平','将左尖角向下送进同一袋口，然后把书角轻轻压平。','两个尖角都收在袋内，完成的书角可以套在书页一角。']
 ];
 const $ = id => document.getElementById(id);
+const downloadPage='https://lihywh.github.io/paperfold-studio/';
 function readLocal(key,fallback){
   try{return JSON.parse(localStorage.getItem(key)) ?? fallback;}
   catch{return fallback;}
@@ -103,7 +105,9 @@ let paperObjects=[];
 function modelFor(id){
   if(!courseModels.has(id)){
     const old=new Set(scene.children);
-    const model=id==='bookmark' ? {...createPaper(scene),corner,angles:stepViews} : createBeginnerModel(scene,id);
+    const entry=courseText[id];
+    const model=id==='bookmark' ? {...createPaper(scene),corner,angles:stepViews} :
+      entry.folds ? createStudioModel(scene,entry) : createBeginnerModel(scene,id);
     const objects=scene.children.filter(object=>!old.has(object));
     courseModels.set(id,{model,objects});
   }
@@ -126,6 +130,12 @@ function localize(){
   document.documentElement.lang=lang==='zh'?'zh-CN':'en';
   document.title=words('brand');
   $('language').textContent=lang==='zh'?'English':'简体中文';
+  $('share-app').textContent=words('share');
+  $('share-address').setAttribute('aria-label',words('share'));
+  $('search-label').textContent=words('search');
+  $('course-search').placeholder=words('search');
+  $('catalog-filters').setAttribute('aria-label',words('filters'));
+  $('no-results').textContent=words('noResults');
   document.querySelector('.brand').lastChild.textContent=words('brand');
   const labels={
     'library-title':'library','library-intro':'intro','library-link':'navBack',
@@ -140,22 +150,46 @@ function localize(){
   $('focus').firstChild.textContent=words('focus')+' ';
   for(const id of ['handle','minus','plus'])$(id).setAttribute('aria-label',words(id));
 }
+const hasCourse=id=>Object.prototype.hasOwnProperty.call(courseText,id);
+const courseGroups=['all','animals','nature','play','objects'];
+let courseGroup='all';
 function renderLibrary(){
-  $('resume-course').hidden=!courseText[saved.recent]||!!saved[saved.recent]?.done;
-  $('course-grid').replaceChildren(...Object.entries(courseText).map(([id,info])=>{
+  $('resume-course').hidden=!hasCourse(saved.recent)||!!saved[saved.recent]?.done;
+  $('catalog-filters').replaceChildren(...courseGroups.map(group=>{
+    const chip=document.createElement('button');
+    chip.dataset.group=group;
+    chip.textContent=words(group);
+    chip.setAttribute('aria-pressed',String(group===courseGroup));
+    chip.onclick=()=>{
+      courseGroup=group;
+      renderLibrary();
+      $('catalog-filters').querySelector('[aria-pressed=true]').focus();
+    };
+    return chip;
+  }));
+  const query=$('course-search').value.trim().toLowerCase();
+  const results=Object.entries(courseText).filter(([id,info])=>{
+    const matchesGroup=courseGroup==='all'||info.group===courseGroup;
+    return matchesGroup&&[id,...info.names,...info.details].some(word=>word.toLowerCase().includes(query));
+  });
+  $('catalog-count').textContent=lang==='zh'?`${results.length} 门课程`:
+    `${results.length} ${results.length===1?'lesson':'lessons'}`;
+  $('no-results').hidden=results.length!==0;
+  $('course-grid').replaceChildren(...results.map(([id,info])=>{
     const button=document.createElement('button');
     button.className='course-card';
     button.dataset.course=id;
     const title=document.createElement('strong');
     title.textContent=pick(info.names);
     const detail=document.createElement('small');
-    detail.textContent=pick(info.details);
+    detail.textContent=pick(info.details)+' · '+(info.en.length)+(lang==='zh'?' 步':' steps');
     const completed=document.createElement('small');
     completed.className='completed';
     completed.textContent=saved[id]?.done?words('done'):'';
     const thumbnail=document.createElement('img');
     thumbnail.src='./thumb-'+id+'.png';
     thumbnail.alt='';
+    thumbnail.loading='lazy';
     thumbnail.onerror=()=>{thumbnail.hidden=true;};
     const description=document.createElement('div');
     description.append(title,detail,completed);
@@ -183,7 +217,7 @@ function showRoute(){
   saveProgress(true);
   const route=location.hash.slice(1);
   const id=route==='pocket'||route==='cutaway'?'bookmark':route;
-  if(!courseText[id]){
+  if(!hasCourse(id)){
     activeId=null;
     playing=false;
     $('lesson-view').hidden=true;
@@ -217,6 +251,36 @@ $('language').onclick=()=>{
   localize();
   if(activeId){rebuildLessons();updateUI();}else renderLibrary();
 };
+$('share-app').onclick=async()=>{
+  if(navigator.userAgent.includes(' PaperFoldAndroid')){
+    location.assign('./share-app');
+    return;
+  }
+  if(typeof navigator.share==='function'){
+    try{
+      await navigator.share({title:words('brand'),url:downloadPage});
+      return;
+    }catch(error){
+      if(error.name==='AbortError')return;
+    }
+  }
+  const feedback=$('share-feedback');
+  const address=$('share-address');
+  try{
+    await navigator.clipboard.writeText(downloadPage);
+    feedback.textContent=words('copied');
+    address.hidden=true;
+  }catch{
+    feedback.textContent=words('copyManually');
+    address.hidden=false;
+    address.value=downloadPage;
+    address.select();
+    address.focus();
+  }
+  feedback.hidden=false;
+};
+$('course-search').oninput=event=>{if(!event.isComposing)renderLibrary();};
+$('course-search').oncompositionend=renderLibrary;
 $('resume-course').onclick=()=>{location.hash=saved.recent;};
 $('library-link').onclick=()=>{location.hash='library';};
 $('mark-done').onclick=()=>{
@@ -336,16 +400,40 @@ function cameraSetup() {
   const toolbarClearance=step===0&&h<270 ? 1.11 : 1;
   const closeUp=pocketCloseUp;
   const simple=activeId!=='bookmark';
+  const framing=paper.framing?.(step);
   const simpleHeight=step===0?2.54:1.71;
-  const height=simple ? Math.max(simpleHeight,2.52/aspect)/zoom :
+  const height=framing ? Math.max(framing.height+.70,(framing.width+.69)/aspect,1.58)/zoom :
+    simple ? Math.max(simpleHeight,2.52/aspect)/zoom :
     closeUp ? Math.max(1.30,1.36/aspect)/zoom :
     Math.max(heights[step],sizes[step]/aspect)*toolbarClearance/zoom;
   camera.top=height/2;camera.bottom=-height/2;camera.right=height*aspect/2;camera.left=-camera.right;
   const cx=closeUp ? 0 : step===3||step===4 ? -.16 : 0;
   const cy=step===0 ? (h<270 ? .24 : .14) : .47;
   target.set(simple?0:cx,simple?(activeId==='dog'?(step===0?.30:-.39):(step===0?0:.39)):cy,closeUp ? .17 : .06);
+  if(framing)target.set(framing.x,framing.y+.12,.07);
   camera.position.set(Math.sin(yaw)*Math.cos(pitch),Math.sin(pitch),Math.cos(yaw)*Math.cos(pitch)).multiplyScalar(4).add(target);
   camera.lookAt(target);camera.updateProjectionMatrix();camera.updateMatrixWorld();
+  if(framing&&zoom===1)keepFoldHandleClear(height);
+}
+function keepFoldHandleClear(height) {
+  const topSpace=h<350 ? 54 : 62, bottomSpace=54;
+  const range=h-topSpace-bottomSpace;
+  if(range<90)return;
+  const ys=Array.from({length:13},(_,index)=>{
+    paper.corner(step,index/12,tmp).project(camera);
+    return (1-tmp.y)*h/2;
+  });
+  const min=Math.min(...ys), max=Math.max(...ys);
+  const scale=Math.max(1,(max-min)/range);
+  const center=h/2;
+  const shift=Math.max(topSpace-(center+(min-center)/scale),
+    Math.min(0,h-bottomSpace-(center+(max-center)/scale)));
+  const worldShift=shift*height*scale/h;
+  camera.top=camera.top*scale+worldShift;
+  camera.bottom=camera.bottom*scale+worldShift;
+  camera.left*=scale;
+  camera.right*=scale;
+  camera.updateProjectionMatrix();
 }
 function projectCorner(p) {
   paper.corner(step,p,tmp,paperView==='spread').project(camera);
@@ -460,7 +548,7 @@ stage.addEventListener('pointermove',e=>{
 for(const ev of ['pointerup','pointercancel'])stage.addEventListener(ev,e=>{
   touches.delete(e.pointerId);if(drag?.kind==='pinch'&&touches.size<2)drag=null;
 },true);
-const seconds=[2.5,2.5,2.5,4.6,2.5,4.6];
+const foldedSeconds=()=>isTuck()?4.6:2.5;
 function frame(now) {
   const dt=Math.min((now-lastFrame)/1000,.08);lastFrame=now;
   if(transition){
@@ -476,7 +564,7 @@ function frame(now) {
         if(progress===0&&previewRemaining>0)previewRemaining=Math.max(0,previewRemaining-dt);
         else if(pocketHold>0)pocketHold=Math.max(0,pocketHold-dt);
         else{
-          const speed=clip ? (clip.end-clip.start)/clip.duration : 1/seconds[step];
+          const speed=clip ? (clip.end-clip.start)/clip.duration : 1/foldedSeconds();
           const next=Math.min(end,progress+dt*speed);
           if(isTuck()&&progress<tuckMotion.crossing&&next>=tuckMotion.crossing){
             progress=tuckMotion.crossing;

@@ -57,7 +57,7 @@ export class SoftwareRenderer {
     const transparent=[],lines=[];
     for(const mesh of scene.children){
       if(mesh.isLine){if(mesh.visible)lines.push(mesh);continue;}
-      if(!mesh.isMesh)continue;
+      if(!mesh.isMesh||!mesh.visible)continue;
       const pos=mesh.geometry.attributes.position.array,idx=mesh.geometry.index.array;
       const verts=[];
       for(let j=0;j<pos.length;j+=3)verts.push(this.project(pos[j],pos[j+1],pos[j+2]));
