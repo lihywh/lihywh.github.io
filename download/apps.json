@@ -1,0 +1,14 @@
+[
+  {"page": "/download/gomoku/", "en": "Gomoku", "hans": "五子连珠", "hant": "五子連珠", "group": "game"},
+  {"page": "/download/reversi/", "en": "Reversi", "hans": "黑白棋", "hant": "黑白棋", "group": "game"},
+  {"page": "/download/gopad/", "en": "GoPad", "hans": "GoPad 围棋", "hant": "GoPad 圍棋", "group": "game"},
+  {"page": "/download/junqi/", "en": "Junqi Table", "hans": "军棋同桌", "hant": "軍棋同桌", "group": "game"},
+  {"page": "/download/jungletable/", "en": "Jungle Table", "hans": "斗兽棋同桌", "hant": "鬥獸棋同桌", "group": "game"},
+  {"page": "/tea-banqi/", "en": "Tea House Dark Chess", "hans": "茶馆暗棋", "hant": "茶館暗棋", "group": "game"},
+  {"page": "/download/paperplanes/", "en": "Paper Planes", "hans": "纸上猜飞机", "hant": "紙上猜飛機", "group": "game"},
+  {"page": "/download/picpuzzle/", "en": "PicPuzzle", "hans": "趣味拼图", "hant": "趣味拼圖", "group": "game"},
+  {"page": "/paperfold-studio/", "en": "PaperFold Studio", "hans": "折纸工坊", "hant": "摺紙工坊", "group": "utility"},
+  {"page": "/download/returnpocket/", "en": "ReturnPocket", "hans": "ReturnPocket", "hant": "ReturnPocket", "group": "utility"},
+  {"page": "/download/amaodash/", "en": "Amao Dash", "hans": "Amao Dash", "hant": "Amao Dash", "group": "utility"},
+  {"page": "/download/apkmanager/", "en": "Apk Manager", "hans": "APK 批量管理器", "hant": "APK 批次管理器", "group": "utility"}
+]

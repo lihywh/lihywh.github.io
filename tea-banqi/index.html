@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>茶館暗棋 · Tea House Dark Chess</title>
 <meta name="description" content="下載 Android 版茶館暗棋。離線人機、同機雙人，或和附近的朋友一起玩。">
+<link rel="icon" href="icon.png">
 <link rel="canonical" href="https://lihywh.github.io/tea-banqi/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://lihywh.github.io/tea-banqi/">
@@ -16,6 +17,9 @@
 <meta property="og:image:alt" content="茶館暗棋的木棋與茶杯">
 <meta name="twitter:card" content="summary_large_image">
 <style>
+.hero .primary-icon{display:block;width:56px;height:56px;min-height:0;margin:0 0 .55rem;border-radius:12px;object-fit:contain}
+.app-directory h3{margin:1rem 0 .45rem;font-size:1rem}
+
 *{box-sizing:border-box}
 body{margin:0;color:#30241e;background:#f4eddf;font:16px/1.6 system-ui,-apple-system,"PingFang TC",sans-serif}
 main{max-width:960px;margin:0 auto;padding:28px clamp(14px,4vw,34px) 30px}
@@ -36,6 +40,7 @@ a:focus-visible{outline:3px solid #36574d;outline-offset:4px}
 .games a{display:flex;align-items:center;gap:10px;min-height:76px;padding:9px;border:1px solid #dfcfb8;border-radius:10px;background:#fcf7eb;text-decoration:none}
 .games a:hover{background:#efe1c8}
 .games img{width:40px;height:40px;border-radius:9px;flex:none}
+.games a>span{min-width:0;overflow-wrap:anywhere}
 .games strong,.games small{display:block}
 .games strong{color:#30241e;font-size:.98rem}
 .games small{color:#59483c;line-height:1.3}
@@ -48,11 +53,13 @@ footer{margin-top:14px;color:#59483c;font-size:.91rem;display:flex;flex-wrap:wra
 html[lang=en] .games small{display:none}
 @media(max-width:340px){.games a{gap:7px}.games img{width:34px;height:34px}.games strong{overflow-wrap:anywhere}}
 </style>
+<script src="/download/app-directory.js" defer></script>
 </head>
 <body>
 <main>
 <header class="hero">
   <div class="intro">
+    <img class="primary-icon" src="icon.png" width="56" height="56" alt="">
     <h1 data-en="Tea House Dark Chess" data-hans="茶馆暗棋">茶館暗棋</h1>
     <p class="subtitle">Android</p>
     <p class="summary" data-en="Flip a piece to pick a side. Play against the computer, share a screen, or play with a nearby friend." data-hans="翻一枚棋决定先手阵营。离线练习、同屏双人，或和身边的朋友对弈。">翻一枚棋決定先手陣營。離線練習、同機雙人，或和身邊的朋友對弈。</p>
@@ -62,15 +69,9 @@ html[lang=en] .games small{display:none}
   </div>
   <img src="hero.jpg" alt="" width="850" height="567">
 </header>
-<section class="more" aria-labelledby="more-title">
-  <h2 id="more-title" data-en="More tabletop games" data-hans="更多同桌游戏">更多同桌遊戲</h2>
-  <ul class="games">
-    <li><a href="/download/junqi/"><img src="/download/junqi/icon.png" alt="" width="40" height="40"><span><strong data-en="Junqi Table" data-hans="军棋同桌">軍棋同桌</strong><small lang="en">Junqi Table</small></span></a></li>
-    <li><a href="/download/gomoku/"><img src="/download/gomoku/icon.png" alt="" width="40" height="40"><span><strong data-en="Gomoku">五子棋</strong><small lang="en">Gomoku</small></span></a></li>
-    <li><a href="/download/gopad/"><img src="/download/gopad/icon.png" alt="" width="40" height="40"><span><strong data-en="GoPad" data-hans="围棋">圍棋</strong><small lang="en">GoPad</small></span></a></li>
-    <li><a href="/download/reversi/"><img src="/download/reversi/icon.png" alt="" width="40" height="40"><span><strong data-en="Reversi">黑白棋</strong><small lang="en">Reversi</small></span></a></li>
-    <li><a href="/download/jungletable/"><img src="/download/jungletable/icon.png" alt="" width="40" height="40"><span><strong data-en="Jungle Table" data-hans="斗兽棋同桌">鬥獸棋同桌</strong><small lang="en">Jungle Table</small></span></a></li>
-  </ul>
+<section class="app-directory" aria-labelledby="all-apps-title" data-app-directory data-current-app="/tea-banqi/" data-list-class="games">
+  <h2 id="all-apps-title" data-directory-title>更多應用</h2>
+  <div data-directory-content></div>
 </section>
 <details>
   <summary data-en="How to play nearby" data-hans="如何开始附近对战">如何開始附近對戰</summary>
