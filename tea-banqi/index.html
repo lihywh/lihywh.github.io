@@ -23,37 +23,28 @@ h1,h2,p{margin:0}
 h1{font-family:"Songti TC","Noto Serif CJK TC",serif;font-size:clamp(2.15rem,6vw,3.4rem);line-height:1.2;color:#87392d}
 .hero{display:grid;grid-template-columns:1.12fr 1fr;overflow:hidden;border:1px solid #dfcfb8;border-radius:16px;background:#fcf7eb}
 .intro{padding:clamp(18px,4vw,34px)}
+.app-title{display:flex;align-items:center;gap:10px}.app-title img{border-radius:9px}
 .subtitle{margin-top:3px;color:#634d3e;font-size:1.03rem}
 .summary{margin:14px 0}
-.hero img{width:100%;height:100%;min-width:0;object-fit:cover;object-position:63% 50%}
+.hero > img{width:100%;height:100%;min-width:0;object-fit:cover;object-position:63% 50%}
 .download{display:inline-flex;align-items:center;min-height:48px;background:#87392d;color:white;padding:8px 17px;border-radius:9px;text-decoration:none;font-weight:700}
 .meta{margin-top:8px;color:#59483c;font-size:.9rem}
 a{color:#36574d}
 a:focus-visible{outline:3px solid #36574d;outline-offset:4px}
-.more{margin-top:28px}
-.more h2{color:#503426;font-size:1.45rem}
-.games{list-style:none;margin:12px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
-.games a{display:flex;align-items:center;gap:10px;min-height:76px;padding:9px;border:1px solid #dfcfb8;border-radius:10px;background:#fcf7eb;text-decoration:none}
-.games a:hover{background:#efe1c8}
-.games img{width:40px;height:40px;border-radius:9px;flex:none}
-.games strong,.games small{display:block}
-.games strong{color:#30241e;font-size:.98rem}
-.games small{color:#59483c;line-height:1.3}
 details{margin-top:24px;border-top:1px solid #d9c9b0;padding-top:12px}
 summary{cursor:pointer;font-weight:650;color:#36574d;min-height:36px}
 details p{margin:6px 0}
 footer{margin-top:14px;color:#59483c;font-size:.91rem;display:flex;flex-wrap:wrap;gap:6px 16px}
-@media(max-width:720px){.games{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:520px){.hero{grid-template-columns:1fr}.hero img{grid-row:2;height:125px;min-height:0;object-position:center 53%}main{padding-top:14px}.more{margin-top:19px}}
-html[lang=en] .games small{display:none}
-@media(max-width:340px){.games a{gap:7px}.games img{width:34px;height:34px}.games strong{overflow-wrap:anywhere}}
+@media(max-width:520px){.hero{grid-template-columns:1fr}.hero > img{grid-row:2;height:125px;min-height:0;object-position:center 53%}main{padding-top:14px}}
 </style>
+<link rel="stylesheet" href="/download/more-apps.css">
+<script src="/download/more-apps.js" defer></script>
 </head>
 <body>
 <main>
 <header class="hero">
   <div class="intro">
-    <h1 data-en="Tea House Dark Chess" data-hans="茶馆暗棋">茶館暗棋</h1>
+    <div class="app-title"><img src="icon.png" width="40" height="40" alt=""><h1 data-en="Tea House Dark Chess" data-hans="茶馆暗棋">茶館暗棋</h1></div>
     <p class="subtitle">Android</p>
     <p class="summary" data-en="Flip a piece to pick a side. Play against the computer, share a screen, or play with a nearby friend." data-hans="翻一枚棋决定先手阵营。离线练习、同屏双人，或和身边的朋友对弈。">翻一枚棋決定先手陣營。離線練習、同機雙人，或和身邊的朋友對弈。</p>
     <a class="download" href="TeaHouseDarkChess-1.0.1.apk" data-en="Download for Android" data-hans="下载茶馆暗棋">下載茶館暗棋</a>
@@ -62,16 +53,68 @@ html[lang=en] .games small{display:none}
   </div>
   <img src="hero.jpg" alt="" width="850" height="567">
 </header>
-<section class="more" aria-labelledby="more-title">
-  <h2 id="more-title" data-en="More tabletop games" data-hans="更多同桌游戏">更多同桌遊戲</h2>
-  <ul class="games">
-    <li><a href="/download/junqi/"><img src="/download/junqi/icon.png" alt="" width="40" height="40"><span><strong data-en="Junqi Table" data-hans="军棋同桌">軍棋同桌</strong><small lang="en">Junqi Table</small></span></a></li>
-    <li><a href="/download/gomoku/"><img src="/download/gomoku/icon.png" alt="" width="40" height="40"><span><strong data-en="Gomoku">五子棋</strong><small lang="en">Gomoku</small></span></a></li>
-    <li><a href="/download/gopad/"><img src="/download/gopad/icon.png" alt="" width="40" height="40"><span><strong data-en="GoPad" data-hans="围棋">圍棋</strong><small lang="en">GoPad</small></span></a></li>
-    <li><a href="/download/reversi/"><img src="/download/reversi/icon.png" alt="" width="40" height="40"><span><strong data-en="Reversi">黑白棋</strong><small lang="en">Reversi</small></span></a></li>
-    <li><a href="/download/jungletable/"><img src="/download/jungletable/icon.png" alt="" width="40" height="40"><span><strong data-en="Jungle Table" data-hans="斗兽棋同桌">鬥獸棋同桌</strong><small lang="en">Jungle Table</small></span></a></li>
+<!-- app-catalog:start -->
+<section class="app-catalog" aria-labelledby="app-catalog-title">
+  <h2 id="app-catalog-title" data-catalog-hans="更多应用" data-catalog-hant="更多應用程式">More apps</h2>
+  <ul>
+    <li><a href="/download/gomoku/">
+      <img src="/download/gomoku/icon.png" width="28" height="28" alt="" loading="lazy">
+      <span data-catalog-hans="五子连珠" data-catalog-hant="五子連珠">Gomoku</span>
+      <span class="catalog-arrow" aria-hidden="true">›</span>
+    </a></li>
+    <li><a href="/download/reversi/">
+      <img src="/download/reversi/icon.png" width="28" height="28" alt="" loading="lazy">
+      <span data-catalog-hans="黑白棋" data-catalog-hant="黑白棋">Reversi</span>
+      <span class="catalog-arrow" aria-hidden="true">›</span>
+    </a></li>
+    <li><a href="/download/gopad/">
+      <img src="/download/gopad/icon.png" width="28" height="28" alt="" loading="lazy">
+      <span data-catalog-hans="GoPad 围棋" data-catalog-hant="GoPad 圍棋">GoPad</span>
+      <span class="catalog-arrow" aria-hidden="true">›</span>
+    </a></li>
+    <li><a href="/download/junqi/">
+      <img src="/download/junqi/icon.png" width="28" height="28" alt="" loading="lazy">
+      <span data-catalog-hans="军棋同桌" data-catalog-hant="軍棋同桌">Junqi Table</span>
+      <span class="catalog-arrow" aria-hidden="true">›</span>
+    </a></li>
+    <li><a href="/download/jungletable/">
+      <img src="/download/jungletable/icon.png" width="28" height="28" alt="" loading="lazy">
+      <span data-catalog-hans="斗兽棋同桌" data-catalog-hant="鬥獸棋同桌">Jungle Table</span>
+      <span class="catalog-arrow" aria-hidden="true">›</span>
+    </a></li>
+    <li><a href="/download/paperplanes/">
+      <img src="/download/paperplanes/icon.png" width="28" height="28" alt="" loading="lazy">
+      <span data-catalog-hans="纸上猜飞机" data-catalog-hant="紙上猜飛機">Paper Planes</span>
+      <span class="catalog-arrow" aria-hidden="true">›</span>
+    </a></li>
+    <li><a href="/download/picpuzzle/">
+      <img src="/download/picpuzzle/icon.png" width="28" height="28" alt="" loading="lazy">
+      <span data-catalog-hans="趣味拼图" data-catalog-hant="趣味拼圖">PicPuzzle</span>
+      <span class="catalog-arrow" aria-hidden="true">›</span>
+    </a></li>
+    <li><a href="/paperfold-studio/">
+      <img src="/paperfold-studio/icon.png" width="28" height="28" alt="" loading="lazy">
+      <span data-catalog-hans="折纸手帖" data-catalog-hant="摺紙手帖">PaperFold Studio</span>
+      <span class="catalog-arrow" aria-hidden="true">›</span>
+    </a></li>
+    <li><a href="/download/returnpocket/">
+      <img src="/download/returnpocket/icon.png" width="28" height="28" alt="" loading="lazy">
+      <span data-catalog-hans="ReturnPocket" data-catalog-hant="ReturnPocket">ReturnPocket</span>
+      <span class="catalog-arrow" aria-hidden="true">›</span>
+    </a></li>
+    <li><a href="/download/amaodash/">
+      <img src="/download/amaodash/icon.png" width="28" height="28" alt="" loading="lazy">
+      <span data-catalog-hans="Amao Dash" data-catalog-hant="Amao Dash">Amao Dash</span>
+      <span class="catalog-arrow" aria-hidden="true">›</span>
+    </a></li>
+    <li><a href="/download/apkmanager/">
+      <img src="/download/apkmanager/icon.png" width="28" height="28" alt="" loading="lazy">
+      <span data-catalog-hans="APK 批量管理器" data-catalog-hant="APK 批次管理器">Apk Manager</span>
+      <span class="catalog-arrow" aria-hidden="true">›</span>
+    </a></li>
   </ul>
 </section>
+<!-- app-catalog:end -->
 <details>
   <summary data-en="How to play nearby" data-hans="如何开始附近对战">如何開始附近對戰</summary>
   <p data-en="Join the same Wi-Fi or hotspot, or use Bluetooth on compatible Android devices. One person hosts, the other joins, and both confirm the same six-digit code." data-hans="两台设备加入同一 Wi-Fi 或手机热点。使用蓝牙时，按系统提示允许搜索及配对。一方建房，另一方查找，双方核对六位数字后开始。">兩台裝置加入同一個 Wi-Fi 或手機熱點。使用藍牙時，按系統指示允許搜尋及配對。一方建房，另一方查找，雙方核對六位數字後開始。</p>

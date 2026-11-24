@@ -35,14 +35,9 @@ a:focus-visible, summary:focus-visible { outline:3px solid #945629; outline-offs
 small { font-size:.82rem; font-weight:400; }
 .support { display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 20px; font-size:.875rem; }
 .support code { overflow-wrap:anywhere; }
-ul { padding:0; list-style:none; margin:0; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:9px; }
-li a { display:flex; align-items:center; gap:9px; padding:10px; min-height:61px; border:1px solid #e4ddd0; border-radius:11px; text-decoration:none; font-weight:600; }
-li a:hover { background:#f3eee2; }
-li img { border-radius:9px; flex:none; }
-.arrow { font-size:1.3em; color:#68746a; margin-left:auto; }
-@media(max-width:390px) { li img { width:29px; height:29px; } li a { padding:7px; gap:6px; } }
-@media(max-width:340px) { ul { grid-template-columns:1fr; } }
 </style>
+<link rel="stylesheet" href="/download/more-apps.css">
+<script src="/download/more-apps.js" defer></script>
 </head>
 <body>
 <main>
@@ -57,23 +52,68 @@ li img { border-radius:9px; flex:none; }
 <details><summary>SHA-256</summary><code>a267887ee2cfad88cc92f8fb1decca34c4af5c8c1356a616673fda36d22863a3</code></details>
 </div>
 </section>
-<section aria-labelledby="games">
-<h2 id="games"><span data-cn="更多同桌游戏" data-tw="更多同桌遊戲">More tabletop games</span></h2>
-<ul><li><a href="/download/junqi/"><img src="/download/junqi/icon.png" alt="" width="40" height="40" loading="lazy"><span data-cn="军棋同桌" data-tw="軍棋同桌">Junqi Table</span><span class="arrow" aria-hidden="true">›</span></a></li>
-<li><a href="/download/gomoku/"><img src="/download/gomoku/icon.png" alt="" width="40" height="40" loading="lazy"><span data-cn="五子连珠" data-tw="五子連珠">Gomoku</span><span class="arrow" aria-hidden="true">›</span></a></li>
-<li><a href="/download/gopad/"><img src="/download/gopad/icon.png" alt="" width="40" height="40" loading="lazy"><span data-cn="GoPad 围棋" data-tw="GoPad 圍棋">GoPad</span><span class="arrow" aria-hidden="true">›</span></a></li>
-<li><a href="/download/reversi/"><img src="/download/reversi/icon.png" alt="" width="40" height="40" loading="lazy"><span data-cn="黑白棋" data-tw="黑白棋">Reversi</span><span class="arrow" aria-hidden="true">›</span></a></li>
-<li><a href="/tea-banqi/"><span data-cn="茶馆暗棋" data-tw="茶館暗棋">Tea House Dark Chess</span><span class="arrow" aria-hidden="true">›</span></a></li>
-<li><a href="/download/paperplanes/"><span data-cn="纸上猜飞机" data-tw="紙上猜飛機">Paper Planes</span><span class="arrow" aria-hidden="true">›</span></a></li></ul>
+<!-- app-catalog:start -->
+<section class="app-catalog" aria-labelledby="app-catalog-title">
+  <h2 id="app-catalog-title" data-catalog-hans="更多应用" data-catalog-hant="更多應用程式">More apps</h2>
+  <ul>
+    <li><a href="/download/gomoku/">
+      <img src="/download/gomoku/icon.png" width="28" height="28" alt="" loading="lazy">
+      <span data-catalog-hans="五子连珠" data-catalog-hant="五子連珠">Gomoku</span>
+      <span class="catalog-arrow" aria-hidden="true">›</span>
+    </a></li>
+    <li><a href="/download/reversi/">
+      <img src="/download/reversi/icon.png" width="28" height="28" alt="" loading="lazy">
+      <span data-catalog-hans="黑白棋" data-catalog-hant="黑白棋">Reversi</span>
+      <span class="catalog-arrow" aria-hidden="true">›</span>
+    </a></li>
+    <li><a href="/download/gopad/">
+      <img src="/download/gopad/icon.png" width="28" height="28" alt="" loading="lazy">
+      <span data-catalog-hans="GoPad 围棋" data-catalog-hant="GoPad 圍棋">GoPad</span>
+      <span class="catalog-arrow" aria-hidden="true">›</span>
+    </a></li>
+    <li><a href="/download/junqi/">
+      <img src="/download/junqi/icon.png" width="28" height="28" alt="" loading="lazy">
+      <span data-catalog-hans="军棋同桌" data-catalog-hant="軍棋同桌">Junqi Table</span>
+      <span class="catalog-arrow" aria-hidden="true">›</span>
+    </a></li>
+    <li><a href="/tea-banqi/">
+      <img src="/tea-banqi/icon.png" width="28" height="28" alt="" loading="lazy">
+      <span data-catalog-hans="茶馆暗棋" data-catalog-hant="茶館暗棋">Tea House Dark Chess</span>
+      <span class="catalog-arrow" aria-hidden="true">›</span>
+    </a></li>
+    <li><a href="/download/paperplanes/">
+      <img src="/download/paperplanes/icon.png" width="28" height="28" alt="" loading="lazy">
+      <span data-catalog-hans="纸上猜飞机" data-catalog-hant="紙上猜飛機">Paper Planes</span>
+      <span class="catalog-arrow" aria-hidden="true">›</span>
+    </a></li>
+    <li><a href="/download/picpuzzle/">
+      <img src="/download/picpuzzle/icon.png" width="28" height="28" alt="" loading="lazy">
+      <span data-catalog-hans="趣味拼图" data-catalog-hant="趣味拼圖">PicPuzzle</span>
+      <span class="catalog-arrow" aria-hidden="true">›</span>
+    </a></li>
+    <li><a href="/paperfold-studio/">
+      <img src="/paperfold-studio/icon.png" width="28" height="28" alt="" loading="lazy">
+      <span data-catalog-hans="折纸手帖" data-catalog-hant="摺紙手帖">PaperFold Studio</span>
+      <span class="catalog-arrow" aria-hidden="true">›</span>
+    </a></li>
+    <li><a href="/download/returnpocket/">
+      <img src="/download/returnpocket/icon.png" width="28" height="28" alt="" loading="lazy">
+      <span data-catalog-hans="ReturnPocket" data-catalog-hant="ReturnPocket">ReturnPocket</span>
+      <span class="catalog-arrow" aria-hidden="true">›</span>
+    </a></li>
+    <li><a href="/download/amaodash/">
+      <img src="/download/amaodash/icon.png" width="28" height="28" alt="" loading="lazy">
+      <span data-catalog-hans="Amao Dash" data-catalog-hant="Amao Dash">Amao Dash</span>
+      <span class="catalog-arrow" aria-hidden="true">›</span>
+    </a></li>
+    <li><a href="/download/apkmanager/">
+      <img src="/download/apkmanager/icon.png" width="28" height="28" alt="" loading="lazy">
+      <span data-catalog-hans="APK 批量管理器" data-catalog-hant="APK 批次管理器">Apk Manager</span>
+      <span class="catalog-arrow" aria-hidden="true">›</span>
+    </a></li>
+  </ul>
 </section>
-<section aria-labelledby="apps">
-<h2 id="apps"><span data-cn="其他应用" data-tw="其他應用程式">Other apps</span></h2>
-<ul><li><a href="/download/picpuzzle/"><img src="/download/picpuzzle/icon.png" alt="" width="40" height="40" loading="lazy"><span data-cn="趣味拼图" data-tw="趣味拼圖">PicPuzzle</span><span class="arrow" aria-hidden="true">›</span></a></li>
-<li><a href="/paperfold-studio/"><span data-cn="折纸手帖" data-tw="摺紙手帖">PaperFold Studio</span><span class="arrow" aria-hidden="true">›</span></a></li>
-<li><a href="/download/amaodash/"><img src="/download/amaodash/icon.png" alt="" width="40" height="40" loading="lazy"><span data-cn="Amao Dash" data-tw="Amao Dash">Amao Dash</span><span class="arrow" aria-hidden="true">›</span></a></li>
-<li><a href="/download/apkmanager/"><img src="/download/apkmanager/icon.png" alt="" width="40" height="40" loading="lazy"><span data-cn="APK 批量管理器" data-tw="APK 批次管理器">Apk Manager</span><span class="arrow" aria-hidden="true">›</span></a></li>
-<li><a href="/download/returnpocket/"><img src="/download/returnpocket/icon.png" alt="" width="40" height="40" loading="lazy"><span data-cn="ReturnPocket" data-tw="ReturnPocket">ReturnPocket</span><span class="arrow" aria-hidden="true">›</span></a></li></ul>
-</section>
+<!-- app-catalog:end -->
 </main>
 <script>
 const language = navigator.language;
