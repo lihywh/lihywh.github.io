@@ -1,21 +1,42 @@
-<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>PaperFold Studio</title>
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PaperFold Studio · 折纸手帖</title>
+<meta name="description" content="20 interactive 3D origami lessons. Fold offline on Android or try the lessons in a browser.">
 <link rel="canonical" href="https://lihywh.github.io/paperfold-studio/">
-<link rel="icon" href="icon.png">
-<meta name="description" content="Learn origami with interactive 3D folding guides. Download PaperFold Studio for Android.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://lihywh.github.io/paperfold-studio/">
 <meta property="og:title" content="PaperFold Studio · 折纸手帖">
-<meta property="og:description" content="Learn origami with interactive 3D folding guides. Download PaperFold Studio for Android.">
-<meta property="og:image" content="https://lihywh.github.io/paperfold-studio/app/thumb-cup.png">
+<meta property="og:description" content="Learn 20 paper models in interactive 3D, from a corner bookmark to a dart or a paper bridge.">
+<meta property="og:image" content="https://lihywh.github.io/paperfold-studio/preview.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Three paper projects from PaperFold Studio, folded into a bookmark, heart and dart">
 <meta name="twitter:card" content="summary_large_image">
-
-<style>body{max-width:660px;margin:48px auto;padding:0 18px;font:17px/1.65 system-ui,sans-serif;color:#203831;background:#f8f7ef}a{color:#245648}.actions{display:flex;gap:16px;flex-wrap:wrap}img{width:100%;border-radius:14px}.app-icon{display:block;width:54px;height:54px}.actions{align-items:center}.actions .install{display:inline-flex;align-items:center;min-height:48px;padding:0 14px;border-radius:9px;background:#245648;color:#fff;font-weight:650;text-decoration:none}
-</style>
-<link rel="stylesheet" href="/download/more-apps.css">
+<link rel="icon" href="./icon.png">
+<style>
+:root{color:#203831;background:#f7f6ee;--brand:#264f41;--line:#cfd8c9;font:16px/1.55 system-ui,sans-serif}
+*{box-sizing:border-box}body{margin:0}main{max-width:980px;margin:auto;padding:clamp(18px,5vw,56px) clamp(14px,4vw,44px) 30px}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#fffef8;align-items:center}
+.intro{padding:clamp(21px,4vw,36px)}.brand-icon{display:block;width:57px;height:57px;border-radius:14px}
+h1{font:600 clamp(2rem,5vw,3.35rem)/1.04 Georgia,"Songti SC",serif;margin:.35em 0 .28em}.description{margin:0 0 19px}
+a{color:var(--brand)}a:focus-visible{outline:3px solid #ae6235;outline-offset:3px}
+.actions{display:flex;flex-wrap:wrap;align-items:center;gap:11px 17px}
+.install{display:inline-flex;align-items:center;min-height:47px;padding:9px 17px;background:var(--brand);color:#fff;text-decoration:none;border-radius:9px;font-weight:720}
+.meta{font-size:.85rem;color:#4e685c;margin:12px 0 0}.preview{width:100%;display:block;aspect-ratio:1200/630;object-fit:cover}
+.support{margin-top:25px;padding-top:13px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:12px;font-size:.93rem}
+@media(max-width:630px){.hero{grid-template-columns:1fr}.preview{max-height:200px}}
+</style><link rel="stylesheet" href="/download/more-apps.css">
 <script src="/download/more-apps.js" defer></script>
-<main><img class="app-icon" src="icon.png" width="54" height="54" alt=""><h1>PaperFold Studio</h1><p>Fold a dog face, paper cup, or corner bookmark with step-by-step interactive 3D guidance.</p>
-<p class="actions"><a class="install" href="PaperFold-Studio-1.0.0.apk">Download Android APK 1.0.0</a><a href="app/">Try in your browser</a></p>
-<p>The Android app works offline and requires Android 8.0 or newer. Keep a square sheet handy.</p>
+</head><body>
+<main><section class="hero">
+<div class="intro"><img class="brand-icon" src="./icon.png" width="57" height="57" alt="">
+<h1 data-zh="折纸手帖">PaperFold Studio</h1>
+<p class="description" data-zh="用一张纸学 20 个互动 3D 折法。从书角到纸桥，每一步都可以拖动、旋转和重播。">Learn 20 interactive 3D folds, from a corner bookmark to a paper bridge. Drag, rotate and replay each step.</p>
+<div class="actions"><a class="install" id="install" href="./PaperFold-Studio-1.1.0.apk" data-zh="下载安装 Android 版">Download for Android</a>
+<a href="./app/" data-zh="浏览器体验">Try in browser</a></div>
+<p class="meta">1.1.0 · Android 8.0+ · <a href="./sha256.txt">SHA-256</a></p></div>
+<img class="preview" src="./preview.jpg" width="1200" height="630" alt=""></section>
 <!-- app-catalog:start -->
 <section class="app-catalog" aria-labelledby="app-catalog-title">
   <h2 id="app-catalog-title" data-catalog-hans="更多应用" data-catalog-hant="更多應用程式">More apps</h2>
@@ -78,5 +99,5 @@
   </ul>
 </section>
 <!-- app-catalog:end -->
-<h2>Support</h2><p>Send feedback to <a href="mailto:lihywh@gmail.com">lihywh@gmail.com</a>. Include your Android version, lesson and step if reporting a problem.</p>
-<p><a href="privacy.html">Privacy policy</a> · <a href="sha256.txt">APK checksum</a></p></main></html>
+<footer class="support"><a href="./privacy.html" data-zh="隐私政策">Privacy policy</a><a href="mailto:lihywh@gmail.com" data-zh="联系开发者">Contact developer</a></footer>
+</main><script type="module" src="./discovery.js"></script></body></html>

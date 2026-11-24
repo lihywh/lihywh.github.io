@@ -1,11 +1,16 @@
 <!doctype html>
-<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f7f6f0"><title>折纸手帖 · 书角</title><link rel="stylesheet" href="./style.css"></head>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f7f6f0"><title>折纸手帖</title><link rel="stylesheet" href="./style.css"></head>
 <body><main>
 <header><div class="brand"><svg viewBox="0 0 36 36" aria-hidden="true"><path d="M3 11 20 3l13 7-14 22Z" fill="#285848"/><path d="m3 11 16 21 1-29Z" fill="#a4b7a1"/><path d="M3 11 20 3l-8 15Z" fill="#587b67"/></svg>折纸手帖</div><button id="language" class="jump" type="button">English</button></header>
 <section id="library">
 <div class="library-heading"><h1 id="library-title"></h1><p id="library-intro"></p>
-<button class="play" id="resume-course" hidden></button></div>
-<div id="course-grid"></div></section>
+<div class="library-actions"><button class="play" id="resume-course" hidden></button>
+<button class="jump" id="share-app" type="button"></button></div>
+<p id="share-feedback" role="status" hidden></p><input id="share-address" readonly hidden></div>
+<div class="catalog-tools"><label for="course-search" id="search-label"></label>
+<input type="search" id="course-search" autocomplete="off">
+<div id="catalog-filters" class="catalog-filters" role="group"></div></div>
+<p id="catalog-count" role="status"></p><div id="course-grid"></div><p id="no-results" hidden></p></section>
 <section id="lesson-view" hidden>
 <button id="library-link" class="library-link" type="button"></button>
 <div class="heading"><div><h1 id="course-name"></h1><p id="course-detail"></p></div><button id="focus" class="jump">练习塞入口袋 <i>↗</i></button></div>

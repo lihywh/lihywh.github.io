@@ -52,3 +52,17 @@
   .gesture{padding-inline:6px;text-align:center}
   .look button,.look #xray{min-width:36px;padding:0 7px}
 }
+.catalog-tools{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+#search-label{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+#course-search{flex:1 1 185px;max-width:310px;min-height:43px;border:1px solid var(--line);border-radius:11px;background:#fffef8;color:var(--ink);font:inherit;padding:0 12px}
+.catalog-filters{display:flex;flex-wrap:wrap;gap:6px}
+.catalog-filters button{min-height:38px;padding:0 11px;border:1px solid var(--line);border-radius:24px;background:#fffef8}
+.catalog-filters button[aria-pressed=true]{background:var(--green);border-color:var(--green);color:white}
+#catalog-count,#no-results{color:var(--muted);font-size:14px;margin:12px 0}
+.course-card{overflow:hidden}
+.course-card small{line-height:1.4}
+@media(max-width:600px){#course-search{max-width:none;width:100%}.catalog-tools{gap:9px}.catalog-filters button{padding:0 8px;font-size:13px;min-height:44px}}
+.library-actions{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.library-actions .jump{background:#fffef8;min-height:44px;padding-inline:16px}
+.library-heading #share-feedback{margin:9px 0 0;font-size:13px}
+#share-address{max-width:100%;width:345px;padding:7px;border:1px solid var(--line);background:#fffef8;border-radius:7px;font:inherit}

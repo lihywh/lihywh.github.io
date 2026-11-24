@@ -1,5 +1,8 @@
+import {studioCourses} from './studio-courses.js';
+
 export const courseText = {
   dog: {
+    group:'animals',
     names:['小狗脸','Dog face'],
     details:['一张方纸 · 基础折法','One square · First folds'],
     cn:[
@@ -16,6 +19,7 @@ export const courseText = {
     ]
   },
   cup: {
+    group:'objects',
     names:['纸杯','Paper cup'],
     details:['一张方纸 · 对齐纸边','One square · Align the edges'],
     cn:[
@@ -34,6 +38,7 @@ export const courseText = {
     ]
   },
   bookmark: {
+    group:'objects',
     names:['书角','Corner bookmark'],
     details:['一张方纸 · 学会塞折','One square · Learn the tuck'],
     en:[
@@ -44,12 +49,19 @@ export const courseText = {
       ['Lift the left corner','Bring both layers on the left toward the top point.','The right point stays inside the pocket.'],
       ['Tuck the left point and flatten','Tuck the left point into the same pocket and gently press it flat.','Both points are inside. Slip the bookmark over a page corner.']
     ]
-  }
+  },
+  ...studioCourses
 };
 
 export const copy = {
   brand:['折纸手帖','PaperFold Studio'],
   library:['折纸课程','Fold something'],
+  search:['搜索作品','Search projects'],
+  share:['分享 App','Share app'], copied:['已复制官网链接','Download link copied'],
+  copyManually:['选中下面的官网链接并复制。','Select and copy the download link below.'],
+  noResults:['没有找到作品。试试别的关键词或分类。','No projects found. Try a different search or category.'],
+  all:['全部','All'], animals:['动物','Animals'], nature:['花与自然','Nature'],
+  play:['可以玩','Play'], objects:['实用小物','Useful'], filters:['课程分类','Lesson categories'],
   intro:['拿一张正方形纸，跟着 3D 模型完成第一件作品。','Grab a square of paper and follow the 3D model to your first finished fold.'],
   navBack:['← 课程库','← Lessons'], resume:['继续上次课程','Resume lesson'],
   done:['已完成','Completed'], mark:['标记为已完成','Mark complete'],

@@ -1,1 +1,1 @@
-b512d03e74e173ae0ab347ad060c6cdd876ea7a38342b5886d606e00d11b4ae0  PaperFold-Studio-1.0.0.apk
+4d44ec397c3357609767be8dee3c39b742c99d7df1bd85b0af74ff08878315c3  PaperFold-Studio-1.1.0.apk
