@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>茶館暗棋 · Tea House Dark Chess</title>
 <meta name="description" content="下載 Android 版茶館暗棋。離線人機、同機雙人，或和附近的朋友一起玩。">
+<link rel="icon" href="icon.png">
 <link rel="canonical" href="https://lihywh.github.io/tea-banqi/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://lihywh.github.io/tea-banqi/">
@@ -16,6 +17,8 @@
 <meta property="og:image:alt" content="茶館暗棋的木棋與茶杯">
 <meta name="twitter:card" content="summary_large_image">
 <style>
+.hero .primary-icon{display:block;width:56px;height:56px;min-height:0;margin:0 0 .55rem;border-radius:12px;object-fit:contain}
+
 *{box-sizing:border-box}
 body{margin:0;color:#30241e;background:#f4eddf;font:16px/1.6 system-ui,-apple-system,"PingFang TC",sans-serif}
 main{max-width:960px;margin:0 auto;padding:28px clamp(14px,4vw,34px) 30px}
@@ -23,19 +26,20 @@ h1,h2,p{margin:0}
 h1{font-family:"Songti TC","Noto Serif CJK TC",serif;font-size:clamp(2.15rem,6vw,3.4rem);line-height:1.2;color:#87392d}
 .hero{display:grid;grid-template-columns:1.12fr 1fr;overflow:hidden;border:1px solid #dfcfb8;border-radius:16px;background:#fcf7eb}
 .intro{padding:clamp(18px,4vw,34px)}
-.app-title{display:flex;align-items:center;gap:10px}.app-title img{border-radius:9px}
 .subtitle{margin-top:3px;color:#634d3e;font-size:1.03rem}
 .summary{margin:14px 0}
-.hero > img{width:100%;height:100%;min-width:0;object-fit:cover;object-position:63% 50%}
+.hero img{width:100%;height:100%;min-width:0;object-fit:cover;object-position:63% 50%}
 .download{display:inline-flex;align-items:center;min-height:48px;background:#87392d;color:white;padding:8px 17px;border-radius:9px;text-decoration:none;font-weight:700}
 .meta{margin-top:8px;color:#59483c;font-size:.9rem}
 a{color:#36574d}
 a:focus-visible{outline:3px solid #36574d;outline-offset:4px}
+
+
 details{margin-top:24px;border-top:1px solid #d9c9b0;padding-top:12px}
 summary{cursor:pointer;font-weight:650;color:#36574d;min-height:36px}
 details p{margin:6px 0}
 footer{margin-top:14px;color:#59483c;font-size:.91rem;display:flex;flex-wrap:wrap;gap:6px 16px}
-@media(max-width:520px){.hero{grid-template-columns:1fr}.hero > img{grid-row:2;height:125px;min-height:0;object-position:center 53%}main{padding-top:14px}}
+@media(max-width:520px){.hero{grid-template-columns:1fr}.hero img{grid-row:2;height:125px;min-height:0;object-position:center 53%}main{padding-top:14px}}
 </style>
 <link rel="stylesheet" href="/download/more-apps.css">
 <script src="/download/more-apps.js" defer></script>
@@ -44,7 +48,8 @@ footer{margin-top:14px;color:#59483c;font-size:.91rem;display:flex;flex-wrap:wra
 <main>
 <header class="hero">
   <div class="intro">
-    <div class="app-title"><img src="icon.png" width="40" height="40" alt=""><h1 data-en="Tea House Dark Chess" data-hans="茶馆暗棋">茶館暗棋</h1></div>
+    <img class="primary-icon" src="icon.png" width="56" height="56" alt="">
+    <h1 data-en="Tea House Dark Chess" data-hans="茶馆暗棋">茶館暗棋</h1>
     <p class="subtitle">Android</p>
     <p class="summary" data-en="Flip a piece to pick a side. Play against the computer, share a screen, or play with a nearby friend." data-hans="翻一枚棋决定先手阵营。离线练习、同屏双人，或和身边的朋友对弈。">翻一枚棋決定先手陣營。離線練習、同機雙人，或和身邊的朋友對弈。</p>
     <a class="download" href="TeaHouseDarkChess-1.0.1.apk" data-en="Download for Android" data-hans="下载茶馆暗棋">下載茶館暗棋</a>
