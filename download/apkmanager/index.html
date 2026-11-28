@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Apk Manager · Android</title>
-<meta name="description" content="Install Apk Manager on Android from its official store listing.">
+<meta name="description" content="Find Android packages in Downloads, check a batch before installation and back up installed apps.">
 <link rel="canonical" href="https://lihywh.github.io/download/apkmanager/">
 <link rel="icon" href="icon.png">
 <link rel="stylesheet" href="../style.css">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Apk Manager · Android">
-<meta property="og:description" content="Open to install Apk Manager on Android.">
+<meta property="og:description" content="Find downloaded APKs, review installation results and keep package backups.">
 <meta property="og:url" content="https://lihywh.github.io/download/apkmanager/">
 <meta property="og:image" content="https://lihywh.github.io/download/apkmanager/preview.png">
 <meta property="og:image:width" content="1200">
@@ -21,6 +21,10 @@
 main { width: min(100%, 490px); }
 .primary { flex-wrap: wrap; row-gap: 4px; }
 .primary small { white-space: nowrap; }
+details { margin: 20px 0; text-align:left; }
+summary { padding: 12px 0; cursor:pointer; font-weight:650; }
+.shots { display:flex; gap:12px; overflow-x:auto; scroll-snap-type:x mandatory; }
+.shots img { width:72%; max-width:300px; height:auto; flex:none; border-radius:12px; scroll-snap-align:start; }
 </style>
 <link rel="stylesheet" href="/download/more-apps.css">
 <script src="/download/more-apps.js" defer></script>
@@ -33,6 +37,14 @@ main { width: min(100%, 490px); }
   <nav aria-label="App stores" id="stores">
     <a class="primary" href="https://play.google.com/store/apps/details?id=aMao.apkManager"><span id="install">Download Apk Manager</span><small>Google Play ↗</small></a>
   </nav>
+  <details><summary id="guide">See how Apk Manager works</summary>
+    <div class="shots" tabindex="0" role="region" aria-labelledby="guide">
+      <img src="flow-1.webp" width="540" height="960" loading="lazy" alt="Select package files from Downloads" data-zh="从下载目录选择安装包">
+      <img src="flow-2.webp" width="540" height="960" loading="lazy" alt="Review a batch before installing" data-zh="查看批量安装预检">
+      <img src="flow-3.webp" width="540" height="960" loading="lazy" alt="See the result for each file" data-zh="逐项查看安装结果">
+      <img src="flow-4.webp" width="540" height="960" loading="lazy" alt="Keep versioned package backups" data-zh="按版本备份安装包">
+    </div>
+  </details>
 <!-- app-catalog:start -->
 <section class="app-catalog" aria-labelledby="app-catalog-title">
   <h2 id="app-catalog-title" data-catalog-hans="更多应用" data-catalog-hant="更多應用程式">More apps</h2>
@@ -99,6 +111,8 @@ main { width: min(100%, 490px); }
 <script>
 if (/^zh(?:-|$)/i.test(navigator.language)) {
   document.documentElement.lang = 'zh';
+  document.getElementById('guide').textContent = '查看操作演示';
+  document.querySelectorAll('.shots img').forEach(img => img.alt = img.dataset.zh);
   const name = document.getElementById('app-name');
   name.textContent = name.dataset.zh;
   document.title = name.dataset.zh + ' · Android';
