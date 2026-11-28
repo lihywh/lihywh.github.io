@@ -140,7 +140,7 @@ function localize(){
   const labels={
     'library-title':'library','library-intro':'intro','library-link':'navBack',
     'resume-course':'resume','legend-back':'backWall','legend-front':'frontWall',
-    'legend-moving':'moving','mouth-label':'mouth','tip-stop':'tipStop','gesture-text':'drag',
+    'front-wall':'frontWall','back-wall':'backWall','legend-moving':'moving','mouth-label':'mouth','tip-stop':'tipStop','gesture-text':'drag',
     'current-fold':'current','tipLabel':'check','progress-label':'progress',
     prev:'prev',next:'next','load-message':'no3d',reload:'reload',
     'clip-open':'open','clip-tuck':'tuck','clip-flatten':'flatten'
@@ -158,7 +158,7 @@ function renderLibrary(){
   $('catalog-filters').replaceChildren(...courseGroups.map(group=>{
     const chip=document.createElement('button');
     chip.dataset.group=group;
-    chip.textContent=words(group);
+    chip.textContent=words(group==='play'?'playCategory':group);
     chip.setAttribute('aria-pressed',String(group===courseGroup));
     chip.onclick=()=>{
       courseGroup=group;
@@ -478,9 +478,14 @@ function draw() {
     wall.classList.toggle('label-right',front===(step===3));
   }
   renderer.render(scene,camera);
-  const inTuckInsertion=isTuck()&&progress>=tuckMotion.openEnd&&progress<tuckMotion.insertEnd;
-  drawFoldGuide($('fold-guide'),w,h,inTuckInsertion||!isTuck()?progress:1,
-    projectCorner,inTuckInsertion?tuckMotion.insertEnd:1);
+  if (isTuck()) {
+    const {openEnd, insertEnd} = tuckMotion;
+    const preview = clamp((progress / openEnd - .45) / .55);
+    drawFoldGuide($('fold-guide'), w, h, Math.max(progress, openEnd),
+      projectCorner, insertEnd, preview * preview * (3 - 2 * preview));
+  } else {
+    drawFoldGuide($('fold-guide'), w, h, progress, projectCorner);
+  }
   dirty=false;
 }
 new ResizeObserver(()=>{

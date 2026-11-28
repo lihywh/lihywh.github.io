@@ -35,7 +35,9 @@ function trace(ctx, width, color) {
   ctx.stroke();
 }
 
-export function drawFoldGuide(canvas, width, height, progress, projectCorner, endProgress=1) {
+// alpha fades the whole HUD in before the tuck starts; the arrow itself is
+// always drawn from the current corner, so it shortens as the tip advances.
+export function drawFoldGuide(canvas, width, height, progress, projectCorner, endProgress=1, alpha=1) {
   const ratio = Math.min(devicePixelRatio || 1, 2);
   const pixelWidth = Math.round(width * ratio), pixelHeight = Math.round(height * ratio);
   if (canvas.width !== pixelWidth || canvas.height !== pixelHeight) {
@@ -52,33 +54,51 @@ export function drawFoldGuide(canvas, width, height, progress, projectCorner, en
   const distances = measure(points);
   const total = distances[samples];
   // Leave space for the drag handle at the head of the remaining path.
-  if (total < 18) return;
-  const start = Math.min(17, total * .36);
-  const finish = total - 7;
-  const origin = sampleAt(points, distances, start);
-  const end = sampleAt(points, distances, finish);
+  if (total < 10 || alpha <= 0) return;
+  ctx.globalAlpha = alpha;
   ctx.lineCap = 'round';
   ctx.lineJoin = 'round';
 
-  ctx.beginPath();
-  ctx.moveTo(origin.x, origin.y);
-  for (let i = 1; i < samples; i++) {
-    if (distances[i] > start && distances[i] < finish) ctx.lineTo(points[i].x, points[i].y);
+  // The pocket mouth is marked with a bold double ring so the stop point
+  // reads at a glance; the dashed shaft stops short of it.
+  const goal = points[samples];
+  const ring = Math.min(7, Math.max(3.5, total * .2));
+  const start = Math.min(17, total * .36);
+  const finish = total - ring - 5;
+  if (finish > start + 3) {
+    const origin = sampleAt(points, distances, start);
+    const end = sampleAt(points, distances, finish);
+    ctx.beginPath();
+    ctx.moveTo(origin.x, origin.y);
+    for (let i = 1; i < samples; i++) {
+      if (distances[i] > start && distances[i] < finish) ctx.lineTo(points[i].x, points[i].y);
+    }
+    ctx.lineTo(end.x, end.y);
+    ctx.setLineDash([4, 5]);
+    trace(ctx, 3.5, '#143934c7');
+    trace(ctx, 1.4, '#a8ffdde6');
+    ctx.setLineDash([]);
+
+    ctx.beginPath();
+    const head = finish - start > 30 ? 9 : 6;
+    for (let offset = start + 16; offset < finish - head - 14; offset += 30) {
+      chevron(ctx, sampleAt(points, distances, offset), 5);
+    }
+    chevron(ctx, end, head);
+    trace(ctx, 4.8, ink);
+    trace(ctx, 2.1, mint);
   }
-  ctx.lineTo(end.x, end.y);
-  ctx.setLineDash([4, 5]);
-  trace(ctx, 3.5, '#143934c7');
-  trace(ctx, 1.4, '#a8ffdde6');
-  ctx.setLineDash([]);
 
   ctx.beginPath();
-  for (let offset = start + 16; offset < finish - 18; offset += 30) {
-    chevron(ctx, sampleAt(points, distances, offset), 5);
-  }
-  chevron(ctx, end, total > 36 ? 9 : 6);
-  const goal = points[samples];
-  ctx.moveTo(goal.x + 4, goal.y);
-  ctx.arc(goal.x, goal.y, 4, 0, Math.PI * 2);
-  trace(ctx, 4.8, ink);
-  trace(ctx, 2.1, mint);
+  ctx.moveTo(goal.x + ring, goal.y);
+  ctx.arc(goal.x, goal.y, ring, 0, Math.PI * 2);
+  ctx.moveTo(goal.x + ring * .45, goal.y);
+  ctx.arc(goal.x, goal.y, ring * .45, 0, Math.PI * 2);
+  trace(ctx, 5, ink);
+  ctx.beginPath();
+  ctx.moveTo(goal.x + ring, goal.y);
+  ctx.arc(goal.x, goal.y, ring, 0, Math.PI * 2);
+  ctx.moveTo(goal.x + ring * .45, goal.y);
+  ctx.arc(goal.x, goal.y, ring * .45, 0, Math.PI * 2);
+  trace(ctx, 2.2, mint);
 }

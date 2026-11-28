@@ -61,7 +61,7 @@ export const copy = {
   copyManually:['选中下面的官网链接并复制。','Select and copy the download link below.'],
   noResults:['没有找到作品。试试别的关键词或分类。','No projects found. Try a different search or category.'],
   all:['全部','All'], animals:['动物','Animals'], nature:['花与自然','Nature'],
-  play:['可以玩','Play'], objects:['实用小物','Useful'], filters:['课程分类','Lesson categories'],
+  playCategory:['可以玩','Play'], objects:['实用小物','Useful'], filters:['课程分类','Lesson categories'],
   intro:['拿一张正方形纸，跟着 3D 模型完成第一件作品。','Grab a square of paper and follow the 3D model to your first finished fold.'],
   navBack:['← 课程库','← Lessons'], resume:['继续上次课程','Resume lesson'],
   done:['已完成','Completed'], mark:['标记为已完成','Mark complete'],
